@@ -2,6 +2,7 @@
 
 
 - Tested on WSL2 
+- Podman used instead of Docker
 
 1. ### Use compose file : create a non-root user (see sub-folder "compose-version")
 
