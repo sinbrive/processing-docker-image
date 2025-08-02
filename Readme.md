@@ -9,7 +9,7 @@
 - Fine tune the GUI (still some warnings open)
 - Build & push image on Docker Hub
 
-1. ### Use compose file : create a non-root user (see sub-folder "compose-version")
+### 1. Use compose file : create a non-root user (see sub-folder "compose-version")
 
 - sudo non-root user
     - install sudo (see entrypoint script)
@@ -37,7 +37,7 @@ exec "$@"
  podman logs pypcon
 ```
 
-2. ### BRANCH "CLI-RUN" (no use of compose) : Use standard cli run
+### 2. BRANCH "CLI-RUN" (no use of compose) : Use standard cli run
 
 ```bash
 # build image (remove --no-cache if needed)
