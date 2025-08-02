@@ -4,6 +4,11 @@
 - Tested on WSL2 
 - Podman used instead of Docker
 
+### To do
+- Test on native Linux
+- Fine tune the GUI (still some warnings open)
+- Build & push image on Docker Hub
+
 1. ### Use compose file : create a non-root user (see sub-folder "compose-version")
 
 - sudo non-root user
@@ -21,6 +26,15 @@
 #!/bin/sh
 sudo chown -R pyuser:pyuser  /home/pyuser/sketches
 exec "$@"
+```
+
+- Main commands 
+```bash
+ podman-compose up -d --build
+ podman-compose down
+ podman exec -it pypcon bash
+ podman rm -f pypcon
+ podman logs pypcon
 ```
 
 2. ### BRANCH "CLI-RUN" (no use of compose) : Use standard cli run
