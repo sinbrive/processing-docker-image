@@ -3,7 +3,7 @@
 
 - Tested on WSL2 
 
-2. ### Use compose file : create a non-root user (see sub-folder "compose-version")
+1. ### Use compose file : create a non-root user (see sub-folder "compose-version")
 
 - sudo non-root user
     - install sudo (see entrypoint script)
@@ -22,7 +22,7 @@ sudo chown -R pyuser:pyuser  /home/pyuser/sketches
 exec "$@"
 ```
 
-1. ### BRANCH "CLI-RUN" (no use of compose) : Use standard cli run
+2. ### BRANCH "CLI-RUN" (no use of compose) : Use standard cli run
 
 ```bash
 # build image (remove --no-cache if needed)
