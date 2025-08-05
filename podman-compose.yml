@@ -9,7 +9,7 @@ services:
       - DISPLAY=${DISPLAY}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - py_data:/home/sketches
-volumes:
-  py_data:
-    name: sketches_vol
+      - ./sketches:/home/sketches
+# volumes:
+#   py_data:
+#     name: sketches_vol

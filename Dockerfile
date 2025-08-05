@@ -1,11 +1,10 @@
-FROM ubuntu:24.04
+FROM ubuntu:22.04
 
 ENV DISPLAY=:0
 
 # Install only the JRE if you don't need development tools
 RUN apt-get update \
-    # && apt-get install -y openjdk-17-jdk unzip wget sudo \
-    && apt-get install -y unzip wget sudo \
+    && apt-get install -y openjdk-21-jdk unzip wget sudo \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -18,7 +17,6 @@ RUN wget http://github.com/processing/processing4/releases/download/processing-1
     && unzip /tmp/processing.zip -d /opt \
     && ln -s /opt/Processing/bin/Processing /usr/local/bin/processing \
     && rm /tmp/processing.zip 
-
 
 # # Processing v3.5
 # RUN wget https://github.com/processing/processing/releases/download/processing-0266-3.5/processing-3.5-linux64.tgz \
@@ -45,13 +43,13 @@ COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # create sketches folder
-# RUN mkdir -p sketches
+RUN mkdir -p sketches
 
 # switch to new user
 USER pyuser
 
 # create sketches folder
-RUN mkdir -p sketches
+# RUN mkdir -p sketches
 
 # make sketches/ folder owned by pyuser (RUN chown ... not working) 
 ENTRYPOINT ["/entrypoint.sh"]
