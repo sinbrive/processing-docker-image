@@ -11,31 +11,10 @@ RUN wget http://github.com/processing/processing4/releases/download/processing-1
     && ln -s /opt/Processing/bin/Processing /usr/local/bin/processing \
     && rm /tmp/processing.zip 
 
-# non-root sudo user
-RUN useradd -ms /bin/bash pyuser \
-    && usermod -aG sudo pyuser \
-    && echo "pyuser ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/pyuser \
-    && chmod 440 /etc/sudoers.d/pyuser
-
-# RUN chown -R pyuser:pyuser /opt/Processing \ 
-#         && chmod -R 755 /opt/Processing
-
 # Set the working directory in the container
-WORKDIR /home/pyuser
+WORKDIR /home
 
-# script 
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-# create sketches folder
-RUN mkdir -p sketches
-
-# switch to new user
-USER pyuser
-
-# make sketches/ folder owned by pyuser (RUN chown ... not working) 
-ENTRYPOINT ["/entrypoint.sh"]
-
+# Call processing
 CMD ["/usr/local/bin/processing"]
 
 
