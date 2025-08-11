@@ -4,12 +4,9 @@ services:
   processing:
     build: .
     container_name: pypcon
-    # user: "1000:1000"
     environment:
       - DISPLAY=${DISPLAY}
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix:ro
-      - ./sketches:/home/sketches
-# volumes:
-#   py_data:
-#     name: sketches_vol
+      - ./sketches:/home
+
