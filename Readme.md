@@ -2,9 +2,11 @@
 
 - Tested on WSL2 
 - Podman used instead of Docker
+- Java Mode up & running. One issue with Python Mode.
 
 ### To do
 - Test on native Linux
+- To be addressed : Issue with Python mode -  crash in case of opening existing file within the container. 
 - ~Fine tune the GUI (still some warnings open)~
 - ~Build & push image on Docker Hub~ (see below)
 
