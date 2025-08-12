@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 ENV DISPLAY=:0
 
-RUN apt-get update && apt-get install -y openjdk-21-jdk unzip wget sudo
+RUN apt-get update && apt-get install -y openjdk-21-jdk unzip wget 
 
 # Download and install Processing
 RUN wget http://github.com/processing/processing4/releases/download/processing-1304-4.4.4/processing-4.4.4-linux-x64-portable.zip \
@@ -14,7 +14,7 @@ RUN wget http://github.com/processing/processing4/releases/download/processing-1
 # Set the working directory in the container
 WORKDIR /home
 
-# Call processing
+# run processing
 CMD ["/usr/local/bin/processing"]
 
 
