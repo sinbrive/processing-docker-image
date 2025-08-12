@@ -16,12 +16,12 @@
 -----
 ### Image Publishing on Docker Hub
 - How to use it ?
-    - Run this (Sketches is your host folder, rename it if need be) :
+    - Run this (sketches is your host folder, rename it if need be) :
 ```bash
   podman run -itd --userns=keep-id  --name processing --rm   \ 
   -e DISPLAY=$DISPLAY    \
   -v /tmp/.X11-unix:/tmp/.X11-unix    \
-  -v ./Sketches:/home:rw    \
+  -v ./sketches:/home:rw    \
   sinbrive2/processing-4.4.4:latest
 
 ```
@@ -31,6 +31,9 @@ podman build -t processing-4.4.4 .
 podman login docker.io -u docker-username
 podman tag processing-4.4.4 docker.io/docker-username/processing-4.4.4:latest
 podman push docker.io/docker-username/processing-4.4.4:latest
+
+# new version
+docker commit <container> procprocessing-4.4.4:v0.2
 
 ```
 
